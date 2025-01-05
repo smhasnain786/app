@@ -90,6 +90,7 @@ class _MyExamViewState extends ConsumerState<MyExamTabScreen> {
     bool isLoading = ref.watch(myExamTabController).isLoading;
     List enrollCourseList =
         ref.watch(myExamTabController).enrollCourseList;
+        
     return Scaffold(
         appBar:
             ApGlobalFunctions.cAppBar(header: Text(S.of(context).myExamsTab)),
@@ -119,9 +120,9 @@ class _MyExamViewState extends ConsumerState<MyExamTabScreen> {
                                           canReview: false,
                                           onTap: () {
                                             context.nav.pushNamed(
-                                                Routes.myCourseDetails,
+                                                Routes.myExamDetails,
                                                 arguments:
-                                                    enrollCourseList[index].id);
+                                                    enrollCourseList[index].exam.id);
                                           },
                                         ))
                               ],

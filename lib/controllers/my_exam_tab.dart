@@ -52,6 +52,29 @@ class MyExamTabController extends StateNotifier<Exam> {
     }
   }
 
+  getMyCourseDetails(int id) async {
+    state = state.copyWith(isLoading: true);
+    try {
+      final response =
+          await ref.read(examServiceProvider).examDetailByID(id: id);
+      state = state.copyWith(isLoading: false);
+
+      if (response.statusCode == 200) {
+        var data = CourseDetailModel.fromJson(response.data['data']);
+
+        state = state.copyWith(
+          isLoading: false,
+          enrollCourseList: state.enrollCourseList,
+          );
+      }
+    } catch (error) {
+      debugPrint(error.toString());
+    } finally {
+      state.isLoading = false;
+      state = state._update(state);
+    }
+  }
+
   updateListForReview({required int courseId, required SubmittedReview data}) {
     if (state.enrollCourseList.map((e) => e.id).contains(courseId)) {
       final updatedList = [...state.enrollCourseList];
@@ -61,8 +84,6 @@ class MyExamTabController extends StateNotifier<Exam> {
       state = state.copyWith(enrollCourseList: updatedList);
     }
   }
-
- 
 }
 
 class Exam {
@@ -92,5 +113,5 @@ class Exam {
 }
 
 final myExamTabController =
-    StateNotifierProvider.autoDispose<MyExamTabController,Exam>(
+    StateNotifierProvider.autoDispose<MyExamTabController, Exam>(
         (ref) => MyExamTabController(Exam(enrollCourseList: []), ref));

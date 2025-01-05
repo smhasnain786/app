@@ -70,7 +70,7 @@ class StartExamBottomSheet extends StatelessWidget {
                            
                               context.nav.popAndPushNamed(
                                 Routes.webViewScreen,
-                                arguments: (AppConstants.url)+'/course/exams/${exam.slug}/instructions/${ ref.read(hiveStorageProvider).getAuthToken()}',
+                                arguments: (AppConstants.url)+'course/exams/${exam.slug}/instructions/${ ref.read(hiveStorageProvider).getAuthToken()}',
                               );
                            
                         },

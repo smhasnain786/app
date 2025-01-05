@@ -21,6 +21,7 @@ import 'package:ready_lms/view/profile/profile_screen.dart';
 import 'package:ready_lms/view/quiz/quiz_screen.dart';
 import 'package:ready_lms/view/result_screen/result_screen.dart';
 import 'package:ready_lms/view/splash_screen.dart';
+import 'package:ready_lms/view/exam/my_exam_details/my_exam_details.dart';
 
 class Routes {
   /*We are mapping all th eroutes here
@@ -39,6 +40,7 @@ class Routes {
   static const dashboard = '/dashboard';
   static const courseNew = '/courseNew';
   static const myCourseDetails = '/myCourseDetails';
+  static const myExamDetails = '/myExamDetails';
   static const authHomeScreen = '/authHomeScreen';
   static const checkOutScreen = '/checkOutScreen';
   static const profileScreen = '/profileScreen';
@@ -81,6 +83,12 @@ Route generatedRoutes(RouteSettings settings) {
       int courseID = settings.arguments as int;
       child = MyCourseDetails(
         courseId: courseID,
+      );
+      break;
+      case Routes.myExamDetails:
+      int examID = settings.arguments as int;
+      child = MyExamDetails(
+        examID: examID,
       );
       break;
     case Routes.checkOutScreen:

@@ -3,9 +3,9 @@ class AppConstants {
   // static const String baseUrl = 'https://admin.razinskills.com/api';
   // static const String baseUrl = 'https://examup.in/api';
   // static const String url = 'https://examup.in';
-  // static const String baseUrl = 'https://demo.readylms.app/api';
-  static const String url = 'http://10.0.2.2:8000';
   static const String baseUrl = 'http://10.0.2.2:8000/api';
+  static const String url = 'http://10.0.2.2:8000/';
+  // static const String baseUrl = 'https://1rd1ljsf-8000.inc1.devtunnels.ms/api';
   static const String register = '$baseUrl/register';
   static const String enrolledExams = '$baseUrl/enrolled_exam';
   static const String loginUrl = '$baseUrl/login';
@@ -19,6 +19,7 @@ class AppConstants {
   static const String courseList = '$baseUrl/course/list';
   static const String enrolledCourses = '$baseUrl/enrolled_courses';
   static const String courseDetail = '$baseUrl/course/show/';
+  static const String examDetail = '$baseUrl/exams/show/';
   static const String purchase = '$baseUrl/enroll/';
   static const String favouriteList = '$baseUrl/favourite/list';
   static const String certificateList = '$baseUrl/certificate/list';

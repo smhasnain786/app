@@ -90,7 +90,7 @@ class Exam {
   late final String totalDuration;
   late final String totalQuestions;
   late final bool isPaid;
-  late final int price;
+  late final double price;
   late final bool active;
   late final double passingMarks;
   late final String createdAt;

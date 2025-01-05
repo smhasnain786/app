@@ -27,6 +27,12 @@ class ExamService extends Exam {
     });
     return response;
   }
+ Future<Response> examDetailByID({required int id}) async {
+    final response = await ref.read(apiClientProvider).get(
+          AppConstants.examDetail + id.toString(),
+        );
+    return response;
+  }
 
   @override
   Future<Response> submitExam(
